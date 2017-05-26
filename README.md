@@ -16,14 +16,14 @@ After installing the softwares mentioned above and the database, follow these in
 5. Load the database using `psql -d news -f newsdata.sql`
 6. Create views with the following SQL.
 
-`CREATE VIEW article_views AS SELECT path, count(*) AS views FROM log WHERE status='200 OK' AND path LIKE '/article/%' GROUP BY path ORDER BY views DESC;
+`CREATE VIEW article_views AS SELECT path, count(*) AS views FROM log WHERE status='200 OK' AND path LIKE '/article/%' GROUP BY path ORDER BY views DESC;`
 
-CREATE VIEW popular_article_details AS SELECT author, title, views FROM article_views JOIN articles ON path LIKE CONCAT('%', slug);
+`CREATE VIEW popular_article_details AS SELECT author, title, views FROM article_views JOIN articles ON path LIKE CONCAT('%', slug);`
 
-CREATE VIEW popular_authors AS SELECT name , SUM(views) AS total_views FROM popular_article_details, authors WHERE popular_article_details.author = authors.id GROUP BY name ORDER BY total_views DESC;
+`CREATE VIEW popular_authors AS SELECT name , SUM(views) AS total_views FROM popular_article_details, authors WHERE popular_article_details.author = authors.id GROUP BY name ORDER BY total_views DESC;`
 
-CREATE VIEW error_log AS SELECT date(time),COUNT(*) AS total_count, COUNT(CASE WHEN status='404 NOT FOUND'THEN 1 END) AS error_count FROM log  GROUP BY date(time);
+`CREATE VIEW error_log AS SELECT date(time),COUNT(*) AS total_count, COUNT(CASE WHEN status='404 NOT FOUND'THEN 1 END) AS error_count FROM log  GROUP BY date(time);`
 
-CREATE VIEW percent_error_table AS SELECT date, (CAST(error_count AS DECIMAL)/CAST(total_count AS DECIMAL)*100) AS percentage_error FROM error_log WHERE error_count>(total_count/100);`
+`CREATE VIEW percent_error_table AS SELECT date, (CAST(error_count AS DECIMAL)/CAST(total_count AS DECIMAL)*100) AS percentage_error FROM error_log WHERE error_count>(total_count/100);`
 
 7. Run python reporting_tool.py
