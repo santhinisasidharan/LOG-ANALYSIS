@@ -32,7 +32,7 @@ def more_than_one_percent_error():
 def reporting_tool():
       
    
-    #   Reporting top 3 most popular articles
+    # Reporting top 3 most popular articles
     print " "
     print "POPULAR ARTICLES "
     print "****************"
@@ -43,7 +43,7 @@ def reporting_tool():
         n = n+1
     print " "
     
-    #Reporting authors based on popularity of their articles
+    # Reporting authors based on popularity of their articles
     
     print "POPULAR AUTHORS"
     print "***************"
@@ -54,7 +54,7 @@ def reporting_tool():
         n = n+1
     print " "                                          
 
-    #Reporting dates where more than 1% request lead to errors
+    # Reporting dates where more than 1% request lead to errors
     
     print "ERROR LOG "
     print "*********"
