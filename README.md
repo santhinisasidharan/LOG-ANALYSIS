@@ -1,4 +1,5 @@
 # Log- Analysis
+https://www.tutorialspoint.com/postgresql/postgresql_python.htm
   This project is made as a part of 3rd project of Udacity full stack nanodegree program. Here we build an internal reporting tool,**reporting_tool.py** that uses information from the database to discover what kind of articles the site's readers like.The database contains information about newspaper articles in 2 tables **authors** and **articles**, and a table **log** for web server log for the site. The log has a database row for each time a reader loaded a web page. The program will run from the command line. It won't take any input from the user. Instead, it will connect to that database, use SQL queries to analyze the log data, and print out the answers to some questions.
 
 ## Pre- requisites
